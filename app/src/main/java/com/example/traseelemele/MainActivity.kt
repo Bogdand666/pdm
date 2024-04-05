@@ -2,7 +2,6 @@ package com.example.traseelemele
 
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         binding.appBarMain.fab.setOnClickListener { view ->
-            navController.navigate(R.id.nav_gallery);
+            navController.navigate(R.id.nav_gallery)
         }
     }
 
