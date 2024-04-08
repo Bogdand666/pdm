@@ -7,7 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.traseelemele.data.Traseu
 import com.example.traseelemele.databinding.FragmentHomeBinding
+import java.util.Date
 
 class HomeFragment : Fragment() {
 
@@ -32,6 +35,28 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
+
+        val listaTrasee = mutableListOf<Traseu>()
+        listaTrasee.add(Traseu().apply {
+            denumire = "Traseu 1"
+            dataStart = Date()
+            dataIncheiere = Date()
+        })
+        listaTrasee.add(Traseu().apply {
+            denumire = "Traseu 2"
+            dataStart = Date()
+            dataIncheiere = Date()
+        })
+        listaTrasee.add(Traseu().apply {
+            denumire = "Traseu 3"
+            dataStart = Date()
+            dataIncheiere = Date()
+        })
+
+        var adaptorTrasee  = AdaptorTrasee(listaTrasee)
+        binding.rvTrasee.adapter = adaptorTrasee
+        binding.rvTrasee.layoutManager = LinearLayoutManager(context)
+
         return root
     }
 
